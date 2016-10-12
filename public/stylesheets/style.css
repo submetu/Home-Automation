@@ -1,0 +1,37 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#buttons{
+	text-align: center;
+	margin: auto;
+}
+.buttons{
+	padding:10px;
+	border:2px solid;
+	margin:20px;
+}
+.buttons:hover{
+	cursor:pointer;
+}
+#lightTime{
+	text-align: center;
+	margin: auto;
+	font-size:2em;
+}
+#sliders{
+	margin:auto;
+	text-align: center;
+}
+#temperature h3{
+	display:inline-block;
+}
+#temperature-field{
+	font-size: 1.3em;
+	margin-left:10px;
+}
