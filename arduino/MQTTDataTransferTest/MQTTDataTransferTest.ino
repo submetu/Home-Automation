@@ -19,11 +19,12 @@
 
 int lightstate = 0;
 unsigned long temperaturetime = 0;
+int val;
 
 // Update these with values suitable for your network.
 byte mac[]    = {  0xDE, 0xED, 0xBA, 0xFE, 0xFE, 0xED };
-IPAddress ip(192, 168, 1, 45);
-IPAddress server(192, 168, 1, 33);
+IPAddress ip(192, 168, 1, 99);
+IPAddress server(192, 168, 1, 43);
 
 void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print("Message arrived [");
@@ -67,16 +68,21 @@ void reconnect() {
 
 void switchlight() {
   if (lightstate)
-    digitalWrite(A0, HIGH);
+    digitalWrite(6, HIGH);
   else
-    digitalWrite(A0, LOW);
+    digitalWrite(6, LOW);
 }
 
 void temperature() {
 
-  if (abs(millis() - temperaturetime) >= 1000) {
-    client.publish("outTopic","Temperature Muthafucka!");
-    Serial.println("Sent");
+  if (abs(millis() - temperaturetime) >= 5000) {
+    val = analogRead(A1);
+    float mv = ( val/1024.0)*5000; 
+    float cel = mv/10;
+    char result[5];
+    dtostrf(cel, 3, 2, result); 
+    client.publish("outTopic",result);
+    Serial.println(result);
     temperaturetime = millis();
   }
 
@@ -96,7 +102,8 @@ void setup()
   Ethernet.begin(mac, ip);
   // Allow the hardware to sort itself out
   delay(1500);
-  pinMode(A0, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(A1, INPUT);
 }
 
 void loop()
