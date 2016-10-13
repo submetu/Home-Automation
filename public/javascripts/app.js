@@ -4,20 +4,25 @@ var $slider = $('#inputSlider');
 var $sliderValue = $('#inputSliderValue');
 var $lightTime = $('#lightTime');
 var $tempField = $('#temperature-field');
+var $pirField  = $('#pir-field');
 
 var socket = io.connect();
  
 
 $on.click(function(){
-	console.log('on button clicked');
 	socket.emit('led:on');
 });
 
 $off.click(function(){
 	socket.emit('led:off');
-	console.log('Off button clicked');
 });
-
+socket.on('temperature',function(data){
+	var date = new Date();
+	$tempField.text(data.temperature+"°C @ "+ date.getHours() + ":" + date.getMinutes() + " hours");
+});
+socket.on('pir',function(data){
+	$pirField.text(data.moving);
+});
 // function showValue(value){
 // 	socket.emit('led:change',{value:value});
 // }

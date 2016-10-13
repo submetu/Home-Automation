@@ -1,23 +1,29 @@
-<h1>{{title}}</h1>
-  <p>Welcome to {{title}}</p>
-  {{!-- <div id ="lightTime">
+<div id="heading" class="center">
+	<h1>{{title}}</h1>
+	<p>Welcome to {{title}}</p>
+</div>
+
+  {{!-- <div id ="lightTime" class="center">
     Day or Night - Calculating ..
   </div> --}}
-  <div id = "buttons">
+  <div id = "buttons" class="center">
   	<button id ="on" class="buttons">On</button>
   	<button id ="off" class="buttons">Off</button>
     {{!-- <label for="automatic">Autmoatic Light Detection</label>
     <input id="automatic" type="checkbox" name="automatic" checked> --}}
   </div>
-  {{!-- <div id ="sliders">
+  {{!-- <div id ="sliders" class="center">
     <input type="range" id="inputSlider" min="0" max="255" value="0" step="10">
     <span id="inputSliderValue"></span>
   </div> --}}
-  {{!-- <div id="temperature">
+  <div id="temperature" class="center">
     <h3>Temperature:</h3><span id="temperature-field"></span>
-  </div> --}}
+  </div>
+  <div id ="pir" class ="center">
+  	<h3>Movement:</h3><span id="pir-field"></span>
+  </div>
   
   
-  <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script> 
+  <script src="javascripts/jquery-3.1.0.min.js"></script> 
   <script type="text/javascript" src ="/socket.io/socket.io.js"></script>
   <script type="text/javascript" src ="/javascripts/app.js"></script>
