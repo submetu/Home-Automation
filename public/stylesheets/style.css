@@ -6,32 +6,54 @@ body {
 a {
   color: #00B7FF;
 }
-
-#buttons{
+.center{
 	text-align: center;
-	margin: auto;
+	margin:auto;
+}
+#heading{
+	font-size:2em;
+}
+#buttons{
+	margin: 10% auto;
+
 }
 .buttons{
-	padding:10px;
+	padding:3%;
 	border:2px solid;
 	margin:20px;
+	width:30%;
+	font-size:2em;
 }
 .buttons:hover{
 	cursor:pointer;
 }
 #lightTime{
-	text-align: center;
-	margin: auto;
 	font-size:2em;
 }
-#sliders{
-	margin:auto;
-	text-align: center;
+
+#temperature,#pir{
+	font-size:2em;
 }
-#temperature h3{
+#temperature h3,#pir h3{
 	display:inline-block;
 }
-#temperature-field{
+#temperature-field,#pir-field{
 	font-size: 1.3em;
 	margin-left:10px;
+}
+
+
+
+/* MEDIA QUERIES*/
+@media screen and (min-width:200px) and (max-width:320px){
+     #buttons{
+
+     }
+}
+@media screen and (min-width:321px) and (max-width:480px){
+    
+    
+}
+@media screen and (min-width:481px) and (max-width:768px){
+    
 }
