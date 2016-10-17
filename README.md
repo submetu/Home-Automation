@@ -1,3 +1,5 @@
 # Home-Automation
-change
+<<<<<<< HEAD
+changes
 another change
+
