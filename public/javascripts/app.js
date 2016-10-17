@@ -1,5 +1,7 @@
 var $on = $('#on');
 var $off    = $('#off');
+var $relayOn = $('#relay-on');
+var $relayOff = $('#relay-off');
 var $slider = $('#inputSlider');
 var $sliderValue = $('#inputSliderValue');
 var $lightTime = $('#lightTime');
@@ -16,13 +18,21 @@ $on.click(function(){
 $off.click(function(){
 	socket.emit('led:off');
 });
+$relayOn.mousedown(function(){
+	socket.emit('relay-on');
+});
+$relayOff.mousedown(function(){
+	socket.emit('relay-off');
+});
+
 socket.on('temperature',function(data){
 	var date = new Date();
 	$tempField.text(data.temperature+"°C @ "+ date.getHours() + ":" + date.getMinutes() + " hours");
 });
-socket.on('pir',function(data){
-	$pirField.text(data.moving);
-});
+
+// socket.on('pir',function(data){
+// 	$pirField.text(data.moving);
+// });
 // function showValue(value){
 // 	socket.emit('led:change',{value:value});
 // }

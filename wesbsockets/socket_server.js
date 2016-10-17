@@ -21,6 +21,14 @@ function socketapp(server){
 			publish('off', 'Turn off the light')
 		    console.log('LED OFF RECEIVED');
 		});
+		socket.on('relay-on',function(data){
+			console.log('publishing to extin with 1');
+			publish('extin','1');
+		});
+		socket.on('relay-off',function(data){
+			console.log('publishing to extin with 0');
+			publish('extin','00000');
+		});
 
 	});
  	
