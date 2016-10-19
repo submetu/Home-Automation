@@ -4,7 +4,7 @@
 // Update these with values suitable for your network.
 
 const char* ssid = "TTNET_ZyXEL_ACEA";
-const char* password = "8F231265670E2";
+const char* password = "###";
 const char* mqtt_server = "192.168.1.43";
 
 WiFiClient espClient;
